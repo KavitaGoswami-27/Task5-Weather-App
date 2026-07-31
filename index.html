@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather App |Weather Dashboard</title>
+
+    <meta name="description"
+        content="Professional Weather Dashboard built using HTML, CSS & JavaScript">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+
+                <i class="fa-solid fa-cloud-sun-rain"></i>
+
+                <div>
+
+                    <h2>Weather</h2>
+
+                    <span>Smart Weather Dashboard</span>
+
+                </div>
+
+            </div>
+
+            <div class="nav-buttons">
+
+                <button id="voiceBtn" title="Voice Search">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+
+                <button id="themeBtn" title="Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <section class="hero">
+
+        <h1>
+            Weather Made Smarter
+        </h1>
+
+        <p>
+
+            Get live weather updates, forecasts, air quality,
+            weather analytics and intelligent recommendations.
+
+        </p>
+
+    </section>
+
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="Search any city...">
+
+            <button id="searchBtn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+        </div>
+
+        <button id="locationBtn">
+
+            <i class="fa-solid fa-location-crosshairs"></i>
+
+            Use My Location
+
+        </button>
+
+    </section>
+
+    <section class="weather-section">
+
+        <div class="weather-card glass">
+
+            <div class="weather-left">
+
+                <h2 id="cityName">
+
+                    Dehradun
+
+                </h2>
+
+                <p id="currentDate">
+
+                    Tuesday • 31 July 2026
+
+                </p>
+
+                <img
+                    id="weatherIcon"
+                    src="https://openweathermap.org/img/wn/01d@4x.png"
+                    alt="Weather Icon">
+
+                <h1 id="temperature">
+
+                    28°C
+
+                </h1>
+
+                <h3 id="condition">
+
+                    Clear Sky
+
+                </h3>
+
+                <p id="feelsLike">
+
+                    Feels Like 30°C
+
+                </p>
+
+            </div>
+
+            <div class="weather-right">
+               
+
+<p id="currentDate"></p>
+                <div class="info-card">
+
+                    <i class="fa-solid fa-temperature-full"></i>
+
+                    <h4>Max Temp</h4>
+
+                    <span id="maxTemp">
+
+                        31°C
+
+                    </span>
+
+                </div>
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-temperature-empty"></i>
+
+                    <h4>Min Temp</h4>
+
+                    <span id="minTemp">
+
+                        22°C
+
+                    </span>
+
+                </div>
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-droplet"></i>
+
+                    <h4>Humidity</h4>
+
+                    <span id="humidity">
+
+                        60%
+
+                    </span>
+
+                </div>
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    <h4>Visibility</h4>
+
+                    <span id="visibility">
+
+                        10 km
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+         <button id="favoriteBtn" class="favorite-btn">
+    <i class="fa-solid fa-star"></i>
+    Add to Favorites
+</button>
+
+<button id="shareBtn" class="share-btn">
+    <i class="fa-solid fa-share"></i>
+    Share Weather
+</button>
+
+    </section>
+
+    <section class="highlights">
+
+        <h2>
+
+            Today's Highlights
+
+        </h2>
+
+        <div class="highlight-grid">
+
+            <div class="highlight-card glass">
+
+                <i class="fa-solid fa-wind"></i>
+
+                <h3>Wind Speed</h3>
+
+                <p id="windSpeed">
+
+                    10 km/h
+
+                </p>
+
+            </div>
+
+            <div class="highlight-card glass">
+
+                <i class="fa-solid fa-gauge-high"></i>
+
+                <h3>Pressure</h3>
+
+                <p id="pressure">
+
+                    1008 hPa
+
+                </p>
+
+            </div>
+
+            <div class="highlight-card glass">
+
+                <i class="fa-solid fa-sun"></i>
+
+                <h3>Sunrise</h3>
+
+                <p id="sunrise">
+
+                    05:40 AM
+
+                </p>
+
+            </div>
+
+            <div class="highlight-card glass">
+
+                <i class="fa-solid fa-moon"></i>
+
+                <h3>Sunset</h3>
+
+                <p id="sunset">
+
+                    06:58 PM
+
+                </p>
+
+            </div>
+
+            <div class="highlight-card glass">
+
+                <i class="fa-solid fa-face-smile"></i>
+
+                <h3>Comfort Score</h3>
+
+               <div id="comfortScore"></div>
+
+            </div>
+
+            <div class="highlight-card glass">
+
+                <i class="fa-solid fa-glass-water"></i>
+
+                <h3>Hydration</h3>
+
+                <div id="hydration"></div>
+
+            </div>
+
+            <div class="highlight-card glass">
+
+                <i class="fa-solid fa-shirt"></i>
+
+                <h3>Outfit</h3>
+
+                <div id="outfitSuggestion"></div>
+
+            </div>
+
+            <div class="highlight-card glass">
+
+                <i class="fa-solid fa-route"></i>
+
+                <h3>Travel Advice</h3>
+
+                <div id="travelAdvice"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="hourly-section">
+
+        <div class="section-header">
+
+            <h2>24-Hour Forecast</h2>
+
+            <span>Today</span>
+
+        </div>
+
+        <div class="hourly-container" id="hourlyForecast">
+
+            <div class="hour-card glass">
+                <p>Now</p>
+                <img src="https://openweathermap.org/img/wn/01d.png" alt="">
+                <h3>28°C</h3>
+            </div>
+
+            <div class="hour-card glass">
+                <p>2 PM</p>
+                <img src="https://openweathermap.org/img/wn/02d.png" alt="">
+                <h3>30°C</h3>
+            </div>
+
+            <div class="hour-card glass">
+                <p>4 PM</p>
+                <img src="https://openweathermap.org/img/wn/03d.png" alt="">
+                <h3>31°C</h3>
+            </div>
+
+            <div class="hour-card glass">
+                <p>6 PM</p>
+                <img src="https://openweathermap.org/img/wn/10d.png" alt="">
+                <h3>29°C</h3>
+            </div>
+
+            <div class="hour-card glass">
+                <p>8 PM</p>
+                <img src="https://openweathermap.org/img/wn/10n.png" alt="">
+                <h3>27°C</h3>
+            </div>
+
+            <div class="hour-card glass">
+                <p>10 PM</p>
+                <img src="https://openweathermap.org/img/wn/01n.png" alt="">
+                <h3>25°C</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="forecast-section">
+
+        <div class="section-header">
+
+            <h2>7-Day Forecast</h2>
+
+        </div>
+
+        <div class="forecast-grid" id="weeklyForecast">
+
+            <div class="forecast-card glass">
+
+                <h3>Monday</h3>
+
+                <img src="https://openweathermap.org/img/wn/01d.png" alt="">
+
+                <p>Sunny</p>
+
+                <h4>31° / 22°</h4>
+
+            </div>
+
+            <div class="forecast-card glass">
+
+                <h3>Tuesday</h3>
+
+                <img src="https://openweathermap.org/img/wn/02d.png" alt="">
+
+                <p>Cloudy</p>
+
+                <h4>30° / 21°</h4>
+
+            </div>
+
+            <div class="forecast-card glass">
+
+                <h3>Wednesday</h3>
+
+                <img src="https://openweathermap.org/img/wn/10d.png" alt="">
+
+                <p>Rain</p>
+
+                <h4>28° / 20°</h4>
+
+            </div>
+
+            <div class="forecast-card glass">
+
+                <h3>Thursday</h3>
+
+                <img src="https://openweathermap.org/img/wn/04d.png" alt="">
+
+                <p>Clouds</p>
+
+                <h4>29° / 21°</h4>
+
+            </div>
+
+            <div class="forecast-card glass">
+
+                <h3>Friday</h3>
+
+                <img src="https://openweathermap.org/img/wn/01d.png" alt="">
+
+                <p>Sunny</p>
+
+                <h4>32° / 23°</h4>
+
+            </div>
+
+            <div class="forecast-card glass">
+
+                <h3>Saturday</h3>
+
+                <img src="https://openweathermap.org/img/wn/03d.png" alt="">
+
+                <p>Cloudy</p>
+
+                <h4>29° / 22°</h4>
+
+            </div>
+
+            <div class="forecast-card glass">
+
+                <h3>Sunday</h3>
+
+                <img src="https://openweathermap.org/img/wn/11d.png" alt="">
+
+                <p>Storm</p>
+
+                <h4>27° / 19°</h4>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="extra-section">
+
+        <div class="extra-grid">
+
+            <div class="extra-card glass">
+
+                <h2>Air Quality Index</h2>
+
+                <div class="aqi-circle">
+
+                    <h1 id="aqiValue">
+
+                        42
+
+                    </h1>
+
+                </div>
+
+                <p id="aqiStatus">
+
+                    Good 😊
+
+                </p>
+
+            </div>
+
+            <div class="extra-card glass">
+
+                <h2>UV Index</h2>
+
+                <div class="uv-circle">
+
+                    <h1 id="uvIndex">
+
+                        4.3
+
+                    </h1>
+
+                </div>
+
+                <p>
+
+                    Moderate ☀️
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="chart-section">
+
+        <h2 class="chart-title">
+
+            Weather Analytics
+
+        </h2>
+
+        <div class="chart-grid">
+
+            <div class="chart-card glass">
+
+                <h3>Temperature Trend</h3>
+
+                <canvas id="temperatureChart"></canvas>
+
+            </div>
+
+            <div class="chart-card glass">
+
+                <h3>Humidity</h3>
+
+                <canvas id="humidityChart"></canvas>
+
+            </div>
+
+            <div class="chart-card glass">
+
+                <h3>Wind Speed</h3>
+
+                <canvas id="windChart"></canvas>
+
+            </div>
+
+            <div class="chart-card glass">
+
+                <h3>Pressure</h3>
+
+                <canvas id="pressureChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="loader" id="loader">
+
+        <div class="spinner"></div>
+
+        <p>
+
+            Fetching Live Weather...
+
+        </p>
+
+    </div>
+
+    <section class="map-section">
+
+        <div class="section-header">
+
+            <h2>Live Weather Map</h2>
+
+        </div>
+
+        <div class="map-card glass">
+
+            <div id="map"></div>
+
+        </div>
+
+    </section>
+
+    <section class="favorites-section">
+
+        <div class="section-header">
+
+            <h2>Favorite Cities</h2>
+
+        </div>
+
+        <div class="favorites-grid" id="favoriteCities">
+
+            <div class="favorite-card glass">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h3>Delhi</h3>
+
+                <p>31°C</p>
+
+            </div>
+
+            <div class="favorite-card glass">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h3>Mumbai</h3>
+
+                <p>29°C</p>
+
+            </div>
+
+            <div class="favorite-card glass">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h3>London</h3>
+
+                <p>18°C</p>
+
+            </div>
+
+            <div class="favorite-card glass">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h3>Tokyo</h3>
+
+                <p>24°C</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="recent-section">
+
+        <div class="section-header">
+
+            <h2>Recent Searches</h2>
+
+        </div>
+
+        <div class="recent-list" id="recentSearches">
+
+            <button class="recent-btn">Dehradun</button>
+
+            <button class="recent-btn">Delhi</button>
+
+            <button class="recent-btn">Mumbai</button>
+
+            <button class="recent-btn">Bangalore</button>
+
+            <button class="recent-btn">London</button>
+
+        </div>
+
+    </section>
+
+    <section class="compare-section">
+
+        <div class="section-header">
+
+            <h2>Weather Comparison</h2>
+
+        </div>
+
+        <div class="compare-grid">
+
+            <div class="compare-card glass">
+
+                <h3>Current City</h3>
+
+                <h2 id="compareCity1">
+
+                    Dehradun
+
+                </h2>
+
+                <p id="compareTemp1">
+
+                    28°C
+
+                </p>
+
+            </div>
+
+            <div class="vs">
+
+                VS
+
+            </div>
+
+            <div class="compare-card glass">
+
+                <h3>Comparison City</h3>
+
+                <input id="compareCity" placeholder="Enter city">
+
+<button id="compareBtn">
+    Compare Weather
+</button>
+
+<div id="comparisonResult"></div>
+
+            </div>
+
+        </div>
+    </section>
+    <section class="facts-section">
+        <div class="glass fact-card">
+            <i class="fa-solid fa-lightbulb"></i>
+            <h2>Did You Know?</h2>
+            <p id="weatherFact">
+                Lightning is approximately five times hotter than
+                the surface of the Sun.
+            </p>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h2>
+                    <i class="fa-solid fa-cloud-sun-rain"></i>
+                    Weather
+                </h2>
+                <p>
+                    Smart Weather Dashboard built using
+                    HTML, CSS & JavaScript.
+                </p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">Forecast</a>
+                <a href="#">Weather Map</a>
+                <a href="#">About</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/KavitaGoswami-27"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kavita-goswami-b28565348/"><i class="fab fa-linkedin"></i></a>
+                <!--<a href="#"><i class="fab fa-instagram"></i></a>-->
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">
+            © 2026 Weather  | Developed by Kavita Goswami
+        </p>
+    </footer>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
